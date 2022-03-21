@@ -1,4 +1,6 @@
 // GENERAL
+@import "../styles/vars";
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +10,14 @@
 body {
   min-height: 100vh;
   font-family: sans-serif;
+  color: $txt-primary;
 }
 
 img {
   max-width: 100%;
   height: auto;
+}
+
+a {
+  text-decoration: none;
 }
