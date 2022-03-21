@@ -1,5 +1,6 @@
 <template>
   <aside class="site-sidebar">
+    <!-- USER INFO -->
     <div class="user-info">
       <a href="#">
         <img src="../assets/img/user-avatar.png" alt="User avatar" />
@@ -16,6 +17,8 @@
         <a href="#">Passa a</a>
       </div>
     </div>
+
+    <!-- SUGGESTED PROFILES -->
     <div class="suggested">
       <div class="suggested-head fwb">
         <span>Suggerimenti per te</span>
@@ -64,6 +67,8 @@
         </div>
         <div class="profile-action">Segui</div>
       </div>
+
+      <div class="suggested-credits">&copy; 2022 INSTAGRAM FROM META</div>
     </div>
   </aside>
 </template>
@@ -135,6 +140,11 @@ export default {
       .profile-action {
         color: $txt-action;
       }
+    }
+    .suggested-credits {
+      margin-top: 2rem;
+      text-transform: uppercase;
+      color: rgba($txt-secondary, 0.3);
     }
   }
 }
