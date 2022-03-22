@@ -25,42 +25,42 @@
         <a href="#"> Mostra tutti </a>
       </div>
       <!-- successivamente da stampare con v-for, per ora fake content -->
-      <div class="suggested-profiles">
+      <div class="suggested-profile">
         <div class="profile-info">
           <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
           <span class="fwb">profile.name</span>
         </div>
         <div class="profile-action">Segui</div>
       </div>
-      <div class="suggested-profiles">
+      <div class="suggested-profile">
         <div class="profile-info">
           <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
           <span class="fwb">profile.name</span>
         </div>
         <div class="profile-action">Segui</div>
       </div>
-      <div class="suggested-profiles">
+      <div class="suggested-profile">
         <div class="profile-info">
           <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
           <span class="fwb">profile.name</span>
         </div>
         <div class="profile-action">Segui</div>
       </div>
-      <div class="suggested-profiles">
+      <div class="suggested-profile">
         <div class="profile-info">
           <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
           <span class="fwb">profile.name</span>
         </div>
         <div class="profile-action">Segui</div>
       </div>
-      <div class="suggested-profiles">
+      <div class="suggested-profile">
         <div class="profile-info">
           <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
           <span class="fwb">profile.name</span>
         </div>
         <div class="profile-action">Segui</div>
       </div>
-      <div class="suggested-profiles">
+      <div class="suggested-profile">
         <div class="profile-info">
           <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
           <span class="fwb">profile.name</span>
@@ -122,7 +122,7 @@ export default {
         color: $txt-primary;
       }
     }
-    .suggested-profiles {
+    .suggested-profile {
       @include df("vertical");
       justify-content: space-between;
       margin-top: 2rem;
