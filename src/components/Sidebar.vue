@@ -86,7 +86,7 @@ export default {
 .site-sidebar {
   flex-grow: 1;
   margin-left: 3rem;
-  padding: 1.5rem;
+  padding: 1.5rem 0 1.5rem 1.5rem;
   .user-info {
     @include df("vertical");
     justify-content: space-between;
