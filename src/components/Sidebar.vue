@@ -24,46 +24,17 @@
         <span>Suggerimenti per te</span>
         <a href="#"> Mostra tutti </a>
       </div>
-      <!-- successivamente da stampare con v-for, per ora fake content -->
-      <div class="suggested-profile">
+      <div
+        class="suggested-profile"
+        v-for="(profile, index) in $attrs.profiles"
+        :key="`profile-sidebar-${index}`"
+      >
         <div class="profile-info">
-          <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-          <span class="fwb">profile.name</span>
-        </div>
-        <div class="profile-action">Segui</div>
-      </div>
-      <div class="suggested-profile">
-        <div class="profile-info">
-          <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-          <span class="fwb">profile.name</span>
-        </div>
-        <div class="profile-action">Segui</div>
-      </div>
-      <div class="suggested-profile">
-        <div class="profile-info">
-          <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-          <span class="fwb">profile.name</span>
-        </div>
-        <div class="profile-action">Segui</div>
-      </div>
-      <div class="suggested-profile">
-        <div class="profile-info">
-          <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-          <span class="fwb">profile.name</span>
-        </div>
-        <div class="profile-action">Segui</div>
-      </div>
-      <div class="suggested-profile">
-        <div class="profile-info">
-          <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-          <span class="fwb">profile.name</span>
-        </div>
-        <div class="profile-action">Segui</div>
-      </div>
-      <div class="suggested-profile">
-        <div class="profile-info">
-          <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-          <span class="fwb">profile.name</span>
+          <img
+            :src="profile.profile_picture"
+            :alt="`${profile.profile_name} avatar`"
+          />
+          <span class="fwb">{{ profile.profile_name }}</span>
         </div>
         <div class="profile-action">Segui</div>
       </div>
@@ -131,6 +102,7 @@ export default {
         justify-content: space-between;
         img {
           height: 32px;
+          width: 32px;
           border-radius: 50%;
         }
         span {

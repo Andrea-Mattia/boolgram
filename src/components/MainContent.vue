@@ -2,10 +2,10 @@
   <main>
     <section class="container">
       <div class="site-feed">
-        <Stories />
+        <Stories :profiles="content" />
         <Post />
       </div>
-      <Sidebar />
+      <Sidebar :profiles="content" />
     </section>
   </main>
 </template>
@@ -22,6 +22,9 @@ export default {
     Post,
     Sidebar,
   },
+  props: {
+    content: Array,
+  },
 };
 </script>
 
@@ -34,7 +37,7 @@ main {
     justify-content: space-between;
     padding-top: 100px;
     .site-feed {
-      flex-basis: 60%;
+      width: 60%;
     }
   }
 }
