@@ -22,19 +22,37 @@ export default {
     return {
       apiProfiles:
         "https://flynn.boolean.careers/exercises/api/boolgram/profiles",
+      apiPosts: "https://flynn.boolean.careers/exercises/api/boolgram/posts",
       profiles: [],
+      posts: [],
     };
   },
   created() {
-    axios
-      .get(this.apiProfiles)
-      .then((res) => {
-        // console.log(res.data);
-        this.profiles = res.data;
-      })
-      .catch((err) => {
-        console.log("ERROR:", err);
-      });
+    this.getStories();
+    this.getPosts();
+  },
+  methods: {
+    getStories() {
+      axios
+        .get(this.apiProfiles)
+        .then((res) => {
+          this.profiles = res.data;
+        })
+        .catch((err) => {
+          console.log("ERROR:", err);
+        });
+    },
+    getPosts() {
+      axios
+        .get(this.apiPosts)
+        .then((res) => {
+          this.posts = res.data;
+          console.log(this.posts);
+        })
+        .catch((err) => {
+          console.log("ERROR:", err);
+        });
+    },
   },
 };
 </script>
