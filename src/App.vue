@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
 
-    <MainContent :content="profiles" />
+    <MainContent :content="profiles" :posts="posts" />
   </div>
 </template>
 
@@ -47,7 +47,6 @@ export default {
         .get(this.apiPosts)
         .then((res) => {
           this.posts = res.data;
-          console.log(this.posts);
         })
         .catch((err) => {
           console.log("ERROR:", err);

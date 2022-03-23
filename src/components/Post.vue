@@ -2,16 +2,19 @@
   <div class="site-post">
     <div class="post-head">
       <div class="profile-info">
-        <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-        <span class="fwb">Profile name</span>
+        <img :src="info.profile_picture" :alt="`${info.profile_name} avatar`" />
+        <span class="fwb">{{ info.profile_fullname }}</span>
       </div>
       <span class="fwb">...</span>
     </div>
     <div class="post-image">
-      <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
+      <img :src="info.post_image" :alt="`${info.profile_name} post image`" />
     </div>
     <div class="post-body">
-      <div class="post-content post-icons">hearth and balloon</div>
+      <div class="post-content post-icons">
+        <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
+      </div>
       <div class="post-content post-likes">
         <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
         <span
@@ -20,7 +23,7 @@
         >
       </div>
       <div class="post-content post-creator">
-        <strong>profile.name</strong> post.text
+        <strong>{{ info.profile_name }}</strong> {{ info.post_text }}
       </div>
       <div class="post-content post-comments">
         <a href="#" @click.prevent="showComments"
@@ -47,9 +50,18 @@
 <script>
 export default {
   name: "Post",
+  props: {
+    info: Object,
+  },
+  data() {
+    return {
+      showed: false,
+    };
+  },
   methods: {
     showComments() {
-      console.log("COMMENTS!");
+      this.showed = !this.showed;
+      console.log(this.showed);
     },
   },
 };
@@ -65,11 +77,12 @@ export default {
   .post-head {
     @include df("vertical");
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     .profile-info {
       @include df("vertical");
       img {
         height: 40px;
+        width: 40px;
         padding: 3px;
         border-radius: 50%;
         background: linear-gradient(215deg, red, orange);
@@ -86,11 +99,16 @@ export default {
       width: 100%;
     }
   }
+  .post-icons {
+    .fa-heart {
+      margin-right: 1.5rem;
+    }
+  }
   .post-body {
     @include df("");
     flex-direction: column;
     .post-content {
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       padding: 0 1.5rem;
     }
     .post-likes {
@@ -102,12 +120,19 @@ export default {
       }
     }
     .post-comments {
+      a {
+        color: $txt-secondary;
+      }
       ul {
         list-style: none;
         li {
           padding-top: 0.25em;
         }
       }
+    }
+    .post-date {
+      margin: 1rem 0;
+      color: $txt-secondary;
     }
     .post-add-comment {
       @include df("vertical");

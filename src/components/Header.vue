@@ -44,9 +44,14 @@ header {
     }
     .site-search {
       input {
-        height: 30px;
-        text-align: center;
-        border: 1px solid #ccc;
+        height: 36px;
+        min-width: 125px;
+        width: 260px;
+        padding-left: 1rem;
+        text-align: left;
+        background: #efefef;
+        border: none;
+        border-radius: 8px;
       }
     }
     .site-user {
