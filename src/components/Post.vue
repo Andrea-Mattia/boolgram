@@ -1,41 +1,81 @@
 <template>
   <div class="site-post">
+    <!-- POST HEAD -->
     <div class="post-head">
       <div class="profile-info">
-        <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-        <span class="fwb">Profile name</span>
+        <img :src="info.profile_picture" :alt="`${info.profile_name} avatar`" />
+        <span class="fwb">{{ info.profile_fullname }}</span>
       </div>
       <span class="fwb">...</span>
     </div>
+    <!-- POST IMAGE -->
     <div class="post-image">
-      <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
+      <img :src="info.post_image" :alt="`${info.profile_name} post image`" />
     </div>
+    <!-- POST BODY -->
     <div class="post-body">
-      <div class="post-content post-icons">hearth and balloon</div>
-      <div class="post-content post-likes">
-        <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-        <span
-          >Piace a <strong>profile.name</strong> e
-          <strong>profile.number altri</strong></span
-        >
+      <!-- Post Icons -->
+      <div class="post-content post-icons">
+        <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
       </div>
+      <!-- Post Likes -->
+      <div class="post-content post-likes" v-if="info.likes.length != 0">
+        <img
+          :src="info.likes[0].profile_picture"
+          :alt="`${info.likes[0].username} avatar`"
+        />
+        <span>
+          Piace a <strong>{{ info.likes[0].username }}</strong>
+          <span v-if="info.likes.length > 1">
+            e <strong>{{ info.likes.length - 1 }} altri</strong>
+          </span>
+        </span>
+      </div>
+      <div class="post-content" v-else>Non ci sono ancora likes.</div>
+      <!-- Post Creator -->
       <div class="post-content post-creator">
-        <strong>profile.name</strong> post.text
+        <strong>{{ info.profile_name }}</strong> {{ info.post_text }}
       </div>
+      <!-- Post Comments -->
       <div class="post-content post-comments">
-        <a href="#" @click.prevent="showComments"
-          >Mostra tutti e comments.number commenti</a
-        >
-        <ul>
-          <!-- da stampare con v-for -->
-          <li><strong>comment.username</strong> comment.text</li>
-          <li><strong>comment.username</strong> comment.text</li>
-          <li><strong>comment.username</strong> comment.text</li>
+        <span @click="showed = !showed" v-if="info.comments.length != 0">
+          Mostra tutti e {{ info.comments.length }} commenti
+        </span>
+        <span v-else>Non ci sono ancora commenti.</span>
+        <!-- Mostra i primi 3 commenti, se sono di più-->
+        <ul v-if="info.comments.length > 3 && !showed">
+          <li
+            v-for="(comment, index) in info.comments.slice(1, 4)"
+            :key="`comment-${index}`"
+          >
+            <strong>{{ comment.username }}</strong> {{ comment.text }}
+          </li>
+        </ul>
+        <!-- Mostra i commenti quando sono inferiori o uguali a 3 -->
+        <ul v-else-if="info.comments.length <= 3">
+          <li
+            v-for="(comment, index) in info.comments"
+            :key="`comment-${index}`"
+          >
+            <strong>{{ comment.username }}</strong> {{ comment.text }}
+          </li>
+        </ul>
+        <!-- Mostra tutti i commenti quando viene cliccata la scritta 'Mostra tutti i commenti' -->
+        <ul v-else-if="showed">
+          <li
+            v-for="(comment, index) in info.comments"
+            :key="`comment-${index}`"
+          >
+            <strong>{{ comment.username }}</strong> {{ comment.text }}
+          </li>
         </ul>
       </div>
+      <!-- Post Date -->
       <div class="post-content post-date">
         post.date human format (like 30 hours ago)
       </div>
+      <!-- Post Add Comment -->
       <div class="post-add-comment">
         <input type="text" placeholder="Aggiungi un commento" />
         <span>Pubblica</span>
@@ -47,10 +87,13 @@
 <script>
 export default {
   name: "Post",
-  methods: {
-    showComments() {
-      console.log("COMMENTS!");
-    },
+  props: {
+    info: Object,
+  },
+  data() {
+    return {
+      showed: false,
+    };
   },
 };
 </script>
@@ -65,11 +108,12 @@ export default {
   .post-head {
     @include df("vertical");
     justify-content: space-between;
-    padding: 1.5rem;
+    padding: 1rem 1.5rem;
     .profile-info {
       @include df("vertical");
       img {
         height: 40px;
+        width: 40px;
         padding: 3px;
         border-radius: 50%;
         background: linear-gradient(215deg, red, orange);
@@ -86,22 +130,35 @@ export default {
       width: 100%;
     }
   }
+  .post-icons {
+    .fa-heart {
+      margin-right: 1.5rem;
+    }
+  }
   .post-body {
     @include df("");
     flex-direction: column;
     .post-content {
-      margin: 1rem 0;
+      margin: 0.5rem 0;
       padding: 0 1.5rem;
     }
     .post-likes {
       @include df("vertical");
       img {
         height: 30px;
+        width: 30px;
         margin-right: 1rem;
         border-radius: 50%;
       }
     }
+    .post-creator {
+      margin-bottom: 1rem;
+    }
     .post-comments {
+      span {
+        color: $txt-secondary;
+        cursor: pointer;
+      }
       ul {
         list-style: none;
         li {
@@ -109,16 +166,27 @@ export default {
         }
       }
     }
+    .post-date {
+      margin: 1rem 0;
+      color: $txt-secondary;
+    }
     .post-add-comment {
       @include df("vertical");
       justify-content: space-between;
       border-top: 1px solid #ddd;
-      margin: 1rem 0;
-      padding-top: 1rem;
+      padding: 1rem 0;
       input {
+        flex-grow: 1;
+        height: 36px;
         font-size: 18px;
-        padding-left: 1.5rem;
+        margin: 0 1.5rem;
         border: none;
+        outline: none;
+        border-radius: 8px;
+        transition: background 0.3s linear;
+        &:focus {
+          background: #eee;
+        }
       }
       span {
         padding-right: 1.5rem;

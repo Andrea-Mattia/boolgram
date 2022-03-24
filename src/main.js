@@ -8,10 +8,11 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // importing icons
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 
 // adding icons
-library.add(faHeart, faHouse);
+library.add(faHeart, faHouse, faComment);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.config.productionTip = false;

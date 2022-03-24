@@ -3,7 +3,11 @@
     <section class="container">
       <div class="site-feed">
         <Stories :profiles="content" />
-        <Post />
+        <Post
+          v-for="(post, index) in posts"
+          :key="`post-${index}`"
+          :info="post"
+        />
       </div>
       <Sidebar :profiles="content" />
     </section>
@@ -24,6 +28,7 @@ export default {
   },
   props: {
     content: Array,
+    posts: Array,
   },
 };
 </script>
