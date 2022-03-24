@@ -73,7 +73,7 @@
       </div>
       <!-- Post Date -->
       <div class="post-content post-date">
-        post.date human format (like 30 hours ago)
+        {{ this.dateDiffForHumans(this.date) }}
       </div>
       <!-- Post Add Comment -->
       <div class="post-add-comment">
@@ -85,6 +85,9 @@
 </template>
 
 <script>
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+
 export default {
   name: "Post",
   props: {
@@ -93,7 +96,16 @@ export default {
   data() {
     return {
       showed: false,
+      date: this.info.date.date,
     };
+  },
+  created() {
+    dayjs.extend(relativeTime);
+  },
+  methods: {
+    dateDiffForHumans(date) {
+      return dayjs().to(dayjs(date));
+    },
   },
 };
 </script>
@@ -155,6 +167,7 @@ export default {
       margin-bottom: 1rem;
     }
     .post-comments {
+      margin-bottom: 0;
       span {
         color: $txt-secondary;
         cursor: pointer;
@@ -167,7 +180,7 @@ export default {
       }
     }
     .post-date {
-      margin: 1rem 0;
+      margin: 2rem 0;
       color: $txt-secondary;
     }
     .post-add-comment {
