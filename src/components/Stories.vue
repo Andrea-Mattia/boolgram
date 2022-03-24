@@ -1,6 +1,5 @@
 <template>
   <div class="site-stories">
-    <!-- placeholder content -->
     <div
       class="story"
       v-for="(profile, index) in $attrs.profiles"

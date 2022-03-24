@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
 
-    <MainContent :content="profiles" :posts="posts" />
+    <MainContent :profiles="profiles" :posts="posts" />
   </div>
 </template>
 
