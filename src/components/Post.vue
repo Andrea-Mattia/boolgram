@@ -20,13 +20,19 @@
         <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
       </div>
       <!-- Post Likes -->
-      <div class="post-content post-likes">
-        <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
-        <span
-          >Piace a <strong>profile.name</strong> e
-          <strong>profile.number altri</strong></span
-        >
+      <div class="post-content post-likes" v-if="info.likes.length != 0">
+        <img
+          :src="info.likes[0].profile_picture"
+          :alt="`${info.likes[0].username} avatar`"
+        />
+        <span>
+          Piace a <strong>{{ info.likes[0].username }}</strong>
+          <span v-if="info.likes.length > 1">
+            e <strong>{{ info.likes.length - 1 }} altri</strong>
+          </span>
+        </span>
       </div>
+      <div class="post-content" v-else>Non ci sono ancora likes.</div>
       <!-- Post Creator -->
       <div class="post-content post-creator">
         <strong>{{ info.profile_name }}</strong> {{ info.post_text }}
@@ -87,8 +93,6 @@ export default {
   data() {
     return {
       showed: false,
-      // commentList: [],
-      likesNumber: [],
     };
   },
 };

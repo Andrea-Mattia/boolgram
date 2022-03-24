@@ -48,7 +48,6 @@ header {
         min-width: 125px;
         width: 260px;
         padding-left: 1rem;
-        text-align: left;
         background: #efefef;
         border: none;
         border-radius: 8px;
