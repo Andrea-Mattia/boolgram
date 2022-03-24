@@ -1,5 +1,6 @@
 <template>
   <div class="site-post">
+    <!-- POST HEAD -->
     <div class="post-head">
       <div class="profile-info">
         <img :src="info.profile_picture" :alt="`${info.profile_name} avatar`" />
@@ -7,14 +8,18 @@
       </div>
       <span class="fwb">...</span>
     </div>
+    <!-- POST IMAGE -->
     <div class="post-image">
       <img :src="info.post_image" :alt="`${info.profile_name} post image`" />
     </div>
+    <!-- POST BODY -->
     <div class="post-body">
+      <!-- Post Icons -->
       <div class="post-content post-icons">
         <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
         <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
       </div>
+      <!-- Post Likes -->
       <div class="post-content post-likes">
         <img src="../assets/img/user-avatar.png" alt="Profile avatar" />
         <span
@@ -22,23 +27,49 @@
           <strong>profile.number altri</strong></span
         >
       </div>
+      <!-- Post Creator -->
       <div class="post-content post-creator">
         <strong>{{ info.profile_name }}</strong> {{ info.post_text }}
       </div>
+      <!-- Post Comments -->
       <div class="post-content post-comments">
-        <a href="#" @click.prevent="showComments"
-          >Mostra tutti e comments.number commenti</a
-        >
-        <ul>
-          <!-- da stampare con v-for -->
-          <li><strong>comment.username</strong> comment.text</li>
-          <li><strong>comment.username</strong> comment.text</li>
-          <li><strong>comment.username</strong> comment.text</li>
+        <span @click="showed = !showed" v-if="info.comments.length != 0">
+          Mostra tutti e {{ info.comments.length }} commenti
+        </span>
+        <span v-else>Non ci sono ancora commenti.</span>
+        <!-- Mostra i primi 3 commenti, se sono di più-->
+        <ul v-if="info.comments.length > 3 && !showed">
+          <li
+            v-for="(comment, index) in info.comments.slice(1, 4)"
+            :key="`comment-${index}`"
+          >
+            <strong>{{ comment.username }}</strong> {{ comment.text }}
+          </li>
+        </ul>
+        <!-- Mostra i commenti quando sono inferiori o uguali a 3 -->
+        <ul v-else-if="info.comments.length <= 3">
+          <li
+            v-for="(comment, index) in info.comments"
+            :key="`comment-${index}`"
+          >
+            <strong>{{ comment.username }}</strong> {{ comment.text }}
+          </li>
+        </ul>
+        <!-- Mostra tutti i commenti quando viene cliccata la scritta 'Mostra tutti i commenti' -->
+        <ul v-else-if="showed">
+          <li
+            v-for="(comment, index) in info.comments"
+            :key="`comment-${index}`"
+          >
+            <strong>{{ comment.username }}</strong> {{ comment.text }}
+          </li>
         </ul>
       </div>
+      <!-- Post Date -->
       <div class="post-content post-date">
         post.date human format (like 30 hours ago)
       </div>
+      <!-- Post Add Comment -->
       <div class="post-add-comment">
         <input type="text" placeholder="Aggiungi un commento" />
         <span>Pubblica</span>
@@ -56,13 +87,9 @@ export default {
   data() {
     return {
       showed: false,
+      // commentList: [],
+      likesNumber: [],
     };
-  },
-  methods: {
-    showComments() {
-      this.showed = !this.showed;
-      console.log(this.showed);
-    },
   },
 };
 </script>
@@ -115,13 +142,18 @@ export default {
       @include df("vertical");
       img {
         height: 30px;
+        width: 30px;
         margin-right: 1rem;
         border-radius: 50%;
       }
     }
+    .post-creator {
+      margin-bottom: 1rem;
+    }
     .post-comments {
-      a {
+      span {
         color: $txt-secondary;
+        cursor: pointer;
       }
       ul {
         list-style: none;
@@ -138,12 +170,19 @@ export default {
       @include df("vertical");
       justify-content: space-between;
       border-top: 1px solid #ddd;
-      margin: 1rem 0;
-      padding-top: 1rem;
+      padding: 1rem 0;
       input {
+        flex-grow: 1;
+        height: 36px;
         font-size: 18px;
-        padding-left: 1.5rem;
+        margin: 0 1.5rem;
         border: none;
+        outline: none;
+        border-radius: 8px;
+        transition: background 0.3s linear;
+        &:focus {
+          background: #eee;
+        }
       }
       span {
         padding-right: 1.5rem;
