@@ -15,6 +15,14 @@ import { faHouse } from "@fortawesome/free-solid-svg-icons";
 library.add(faHeart, faHouse, faComment);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
+// Day.js
+var dayjs = require("dayjs");
+//import dayjs from 'dayjs' // ES 2015
+dayjs().format();
+// Setting locale globally
+import "dayjs/locale/it";
+dayjs.locale("it");
+
 Vue.config.productionTip = false;
 
 new Vue({

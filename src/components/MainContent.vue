@@ -2,14 +2,14 @@
   <main>
     <section class="container">
       <div class="site-feed">
-        <Stories :profiles="content" />
+        <Stories :profiles="profiles" />
         <Post
           v-for="(post, index) in posts"
           :key="`post-${index}`"
           :info="post"
         />
       </div>
-      <Sidebar :profiles="content" />
+      <Sidebar :profiles="profiles" />
     </section>
   </main>
 </template>
@@ -27,7 +27,7 @@ export default {
     Sidebar,
   },
   props: {
-    content: Array,
+    profiles: Array,
     posts: Array,
   },
 };
@@ -43,6 +43,13 @@ main {
     padding-top: 100px;
     .site-feed {
       width: 60%;
+    }
+    .site-stories {
+      @include df("");
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+      border: 1px solid #ccc;
+      overflow-x: auto;
     }
   }
 }
