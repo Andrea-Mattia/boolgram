@@ -73,7 +73,7 @@
       </div>
       <!-- Post Date -->
       <div class="post-content post-date">
-        {{ this.dateDiffForHumans(this.date) }}
+        {{ dateDiffForHumans(date) }}
       </div>
       <!-- Post Add Comment -->
       <div class="post-add-comment">

@@ -2,7 +2,7 @@
   <div class="site-stories">
     <div
       class="story"
-      v-for="(profile, index) in $attrs.profiles"
+      v-for="(profile, index) in profiles"
       :key="`profile-${index}`"
     >
       <img
@@ -17,6 +17,9 @@
 <script>
 export default {
   name: "Stories",
+  props: {
+    profiles: Array,
+  },
 };
 </script>
 
