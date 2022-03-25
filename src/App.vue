@@ -2,7 +2,7 @@
   <div id="app">
     <Header />
 
-    <Loader v-if="loading" :profiles="profiles" :posts="posts" />
+    <Loader v-if="loading" />
     <MainContent :profiles="profiles" :posts="posts" />
   </div>
 </template>
@@ -34,9 +34,7 @@ export default {
   created() {
     this.getStories();
     this.getPosts();
-    setTimeout(() => {
-      this.loading = false;
-    }, 3000);
+    this.isLoading();
   },
   methods: {
     getStories() {
@@ -59,6 +57,15 @@ export default {
           console.log("ERROR:", err);
         });
     },
+    isLoading() {
+      const body = document.body;
+      body.classList.add("noscroll");
+
+      setTimeout(() => {
+        body.classList.remove("noscroll");
+        this.loading = false;
+      }, 3000);
+    },
   },
 };
 </script>
@@ -66,4 +73,8 @@ export default {
 <style lang="scss">
 @import "./styles/general";
 @import "./styles/utilities";
+
+.noscroll {
+  overflow: hidden;
+}
 </style>
