@@ -10,9 +10,21 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faCompass } from "@fortawesome/free-regular-svg-icons";
+import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import { faSquarePlus } from "@fortawesome/free-regular-svg-icons";
+import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 // adding icons
-library.add(faHeart, faHouse, faComment);
+library.add(
+  faHeart,
+  faHouse,
+  faComment,
+  faCompass,
+  faPaperPlane,
+  faSquarePlus,
+  faCircleNotch
+);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 // Day.js

@@ -18,6 +18,7 @@
       <div class="post-content post-icons">
         <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
         <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-paper-plane" size="xl" />
       </div>
       <!-- Post Likes -->
       <div class="post-content post-likes" v-if="info.likes.length != 0">
@@ -143,7 +144,8 @@ export default {
     }
   }
   .post-icons {
-    .fa-heart {
+    .fa-heart,
+    .fa-comment {
       margin-right: 1.5rem;
     }
   }

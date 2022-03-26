@@ -13,8 +13,11 @@
       </div>
       <!-- USER -->
       <div class="site-user">
-        <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
         <font-awesome-icon icon="fa-solid fa-house" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-paper-plane" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-square-plus" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-compass" size="xl" />
+        <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
         <img src="../assets/img/user-avatar.png" alt="User avatar" />
       </div>
     </div>

@@ -1,6 +1,7 @@
 <template>
   <section class="container">
     <div class="main-content">
+      <font-awesome-icon icon="fa-solid fa-circle-notch" size="4x" spin />
       <!-- STORIES -->
       <div class="site-stories">
         <div class="story"></div>
@@ -112,9 +113,14 @@ section {
   position: relative;
   .main-content {
     position: absolute;
-    top: 100px;
+    top: 80px;
     width: 60%;
+    text-align: center;
     background: #fff;
+    .fa-circle-notch {
+      margin-bottom: 1rem;
+      color: $txt-secondary;
+    }
     .site-stories {
       @include df("horizontal");
       padding: 2.5rem;
@@ -217,7 +223,7 @@ section {
       }
       .post-cover {
         position: relative;
-        height: 550px;
+        height: 500px;
         width: 100%;
         background: #ddd;
         overflow: hidden;
