@@ -40,7 +40,14 @@
       </div>
       <!-- Post Comments -->
       <div class="post-content post-comments">
-        <span @click="showed = !showed" v-if="info.comments.length != 0">
+        <span v-if="info.comments.length <= 3"
+          >Tutti i commenti sono mostrati.</span
+        >
+        <span
+          class="show-comments"
+          @click="showed = !showed"
+          v-else-if="info.comments.length != 0"
+        >
           Mostra tutti e {{ info.comments.length }} commenti
         </span>
         <span v-else>Non ci sono ancora commenti.</span>
@@ -172,12 +179,14 @@ export default {
       margin-bottom: 0;
       span {
         color: $txt-secondary;
+      }
+      .show-comments {
         cursor: pointer;
       }
       ul {
         list-style: none;
         li {
-          padding-top: 0.25em;
+          padding-top: 0.5em;
         }
       }
     }
