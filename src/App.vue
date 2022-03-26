@@ -64,7 +64,7 @@ export default {
       setTimeout(() => {
         body.classList.remove("noscroll");
         this.loading = false;
-      }, 3000);
+      }, 3500);
     },
   },
 };

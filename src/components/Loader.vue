@@ -106,6 +106,7 @@ export default {
 <style lang="scss" scoped>
 @import "../styles/vars";
 @import "../styles/mixins";
+@import "../styles/animations";
 
 section {
   position: relative;
@@ -121,18 +122,31 @@ section {
       border: 1px solid #ccc;
       overflow-x: auto;
       .story {
+        position: relative;
         height: 65px;
         width: 65px;
         flex-shrink: 0;
         border-radius: 50%;
-        background: linear-gradient(
-          -45deg,
-          rgba(170, 170, 170, 1) 0%,
-          rgba(238, 238, 238, 1) 50%,
-          rgba(170, 170, 170, 1) 100%
-        );
+        background: #ddd;
+        overflow: hidden;
         &:not(:last-child) {
           margin-right: 1.5rem;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform: translateX(-100%);
+          background-image: linear-gradient(
+            90deg,
+            rgba(#fff, 0) 0%,
+            rgba(#fff, 0.8) 50%,
+            rgba(#fff, 0) 100%
+          );
+          animation: loading 2s infinite;
         }
       }
     }
@@ -143,52 +157,86 @@ section {
         @include df("vertical");
         padding: 1rem 1.5rem;
         .post-img {
+          position: relative;
           height: 40px;
           width: 40px;
           border-radius: 50%;
-          background: linear-gradient(
-            -45deg,
-            rgba(170, 170, 170, 1) 0%,
-            rgba(238, 238, 238, 1) 50%,
-            rgba(170, 170, 170, 1) 100%
-          );
+          background: #ddd;
+          overflow: hidden;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            background-image: linear-gradient(
+              90deg,
+              rgba(#fff, 0) 0%,
+              rgba(#fff, 0.8) 50%,
+              rgba(#fff, 0) 100%
+            );
+            animation: loading 2s infinite;
+          }
         }
         .profile-info {
           @include df("");
           flex-direction: column;
+          position: relative;
           margin-left: 1.5rem;
+          overflow: hidden;
           span:first-child {
             height: 10px;
             width: 150px;
             margin-bottom: 0.5rem;
-            background: linear-gradient(
-              90deg,
-              rgba(170, 170, 170, 1) 0%,
-              rgba(238, 238, 238, 1) 50%,
-              rgba(170, 170, 170, 1) 100%
-            );
+            background: #ddd;
           }
           span:last-child {
             height: 10px;
             width: 100px;
-            background: linear-gradient(
+            background: #ddd;
+          }
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            background-image: linear-gradient(
               90deg,
-              rgba(170, 170, 170, 1) 0%,
-              rgba(238, 238, 238, 1) 50%,
-              rgba(170, 170, 170, 1) 100%
+              rgba(#fff, 0) 0%,
+              rgba(#fff, 0.8) 50%,
+              rgba(#fff, 0) 100%
             );
+            animation: loading 1.5s infinite;
           }
         }
       }
       .post-cover {
+        position: relative;
         height: 550px;
         width: 100%;
-        background: linear-gradient(
-          -45deg,
-          rgba(170, 170, 170, 1) 0%,
-          rgba(238, 238, 238, 1) 50%,
-          rgba(170, 170, 170, 1) 100%
-        );
+        background: #ddd;
+        overflow: hidden;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transform: translateX(-100%);
+          background-image: linear-gradient(
+            90deg,
+            rgba(#fff, 0) 0%,
+            rgba(#fff, 0.8) 50%,
+            rgba(#fff, 0) 100%
+          );
+          animation: loading 2s infinite;
+        }
       }
     }
   }
@@ -207,40 +255,61 @@ section {
         .profile-info {
           @include df("vertical");
           .profile-avatar {
+            position: relative;
             height: 40px;
             width: 40px;
             border-radius: 50%;
-            background: linear-gradient(
-              -45deg,
-              rgba(170, 170, 170, 1) 0%,
-              rgba(238, 238, 238, 1) 50%,
-              rgba(170, 170, 170, 1) 100%
-            );
+            background: #ddd;
+            overflow: hidden;
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              transform: translateX(-100%);
+              background-image: linear-gradient(
+                90deg,
+                rgba(#fff, 0) 0%,
+                rgba(#fff, 0.8) 50%,
+                rgba(#fff, 0) 100%
+              );
+              animation: loading 2s infinite;
+            }
           }
           .profile-name {
             @include df("");
             flex-direction: column;
+            position: relative;
             margin-left: 1.5rem;
+            overflow: hidden;
             span:first-child {
               height: 10px;
               width: 150px;
               margin-bottom: 0.5rem;
-              background: linear-gradient(
-                90deg,
-                rgba(170, 170, 170, 1) 0%,
-                rgba(238, 238, 238, 1) 50%,
-                rgba(170, 170, 170, 1) 100%
-              );
+              background: #ddd;
             }
             span:last-child {
               height: 10px;
               width: 100px;
-              background: linear-gradient(
+              background: #ddd;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              top: 0;
+              right: 0;
+              bottom: 0;
+              left: 0;
+              transform: translateX(-100%);
+              background-image: linear-gradient(
                 90deg,
-                rgba(170, 170, 170, 1) 0%,
-                rgba(238, 238, 238, 1) 50%,
-                rgba(170, 170, 170, 1) 100%
+                rgba(#fff, 0) 0%,
+                rgba(#fff, 0.8) 50%,
+                rgba(#fff, 0) 100%
               );
+              animation: loading 1.5s infinite;
             }
           }
         }
