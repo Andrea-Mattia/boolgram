@@ -6,18 +6,13 @@
         <img src="../assets/img/user-avatar.png" alt="User avatar" />
       </a>
       <div class="user-name">
-        <a href="#">
-          <span class="fwb nickname">the_helljumper</span>
-        </a>
-        <a href="#">
-          <span class="real-name">Andrea Mattia</span>
-        </a>
+        <a href="#" class="fwb nickname"> the_helljumper </a>
+        <a href="#" class="real-name"> Andrea Mattia </a>
       </div>
       <div class="user-action">
         <a href="#">Passa a</a>
       </div>
     </div>
-
     <!-- SUGGESTED PROFILES -->
     <div class="suggested">
       <div class="suggested-head fwb">
@@ -26,7 +21,7 @@
       </div>
       <div
         class="suggested-profile"
-        v-for="(profile, index) in $attrs.profiles"
+        v-for="(profile, index) in profiles"
         :key="`profile-sidebar-${index}`"
       >
         <div class="profile-info">
@@ -38,15 +33,17 @@
         </div>
         <div class="profile-action">Segui</div>
       </div>
-
-      <div class="suggested-credits">&copy; 2022 INSTAGRAM FROM META</div>
     </div>
+    <div class="suggested-credits">&copy; 2022 INSTAGRAM FROM META</div>
   </aside>
 </template>
 
 <script>
 export default {
   name: "Sidebar",
+  props: {
+    profiles: Array,
+  },
 };
 </script>
 
@@ -113,11 +110,11 @@ export default {
         color: $txt-action;
       }
     }
-    .suggested-credits {
-      margin-top: 2rem;
-      text-transform: uppercase;
-      color: rgba($txt-secondary, 0.3);
-    }
+  }
+  .suggested-credits {
+    margin-top: 2rem;
+    text-transform: uppercase;
+    color: rgba($txt-secondary, 0.3);
   }
 }
 </style>

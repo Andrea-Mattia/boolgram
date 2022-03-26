@@ -32,6 +32,7 @@ export default {
 
 header {
   position: fixed;
+  z-index: 1;
   width: 100%;
   padding: 0.5rem;
   background: #fff;

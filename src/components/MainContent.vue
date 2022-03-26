@@ -38,18 +38,11 @@ export default {
 
 main {
   section {
-    @include df("verical");
+    @include df("");
     justify-content: space-between;
     padding-top: 100px;
     .site-feed {
       width: 60%;
-    }
-    .site-stories {
-      @include df("");
-      padding: 2.5rem;
-      margin-bottom: 2rem;
-      border: 1px solid #ccc;
-      overflow-x: auto;
     }
   }
 }
