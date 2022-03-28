@@ -40,7 +40,7 @@
       </div>
       <!-- Post Comments -->
       <div class="post-content post-comments">
-        <span v-if="info.comments.length <= 3"
+        <span v-if="info.comments.length <= 3 && info.comments.length != 0"
           >Tutti i commenti sono mostrati.</span
         >
         <span
@@ -51,6 +51,7 @@
           Mostra tutti e {{ info.comments.length }} commenti
         </span>
         <span v-else>Non ci sono ancora commenti.</span>
+
         <!-- Mostra i primi 3 commenti, se sono di più-->
         <ul v-if="info.comments.length > 3 && !showed">
           <li
