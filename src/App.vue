@@ -73,6 +73,7 @@ export default {
 <style lang="scss">
 @import "./styles/general";
 @import "./styles/utilities";
+@import "./styles/media-queries";
 
 .noscroll {
   overflow: hidden;

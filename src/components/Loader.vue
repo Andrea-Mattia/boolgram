@@ -119,7 +119,7 @@ section {
     background: #fff;
     .fa-circle-notch {
       margin-bottom: 1rem;
-      color: $txt-secondary;
+      color: $bg-loading;
     }
     .site-stories {
       @include df("horizontal");
@@ -133,7 +133,7 @@ section {
         width: 65px;
         flex-shrink: 0;
         border-radius: 50%;
-        background: #ddd;
+        background: $bg-loading;
         overflow: hidden;
         &:not(:last-child) {
           margin-right: 1.5rem;
@@ -167,7 +167,7 @@ section {
           height: 40px;
           width: 40px;
           border-radius: 50%;
-          background: #ddd;
+          background: $bg-loading;
           overflow: hidden;
           &::after {
             content: "";
@@ -196,12 +196,12 @@ section {
             height: 10px;
             width: 150px;
             margin-bottom: 0.5rem;
-            background: #ddd;
+            background: $bg-loading;
           }
           span:last-child {
             height: 10px;
             width: 100px;
-            background: #ddd;
+            background: $bg-loading;
           }
           &::after {
             content: "";
@@ -225,7 +225,7 @@ section {
         position: relative;
         height: 500px;
         width: 100%;
-        background: #ddd;
+        background: $bg-loading;
         overflow: hidden;
         &::after {
           content: "";
@@ -265,7 +265,7 @@ section {
             height: 40px;
             width: 40px;
             border-radius: 50%;
-            background: #ddd;
+            background: $bg-loading;
             overflow: hidden;
             &::after {
               content: "";
@@ -294,12 +294,12 @@ section {
               height: 10px;
               width: 150px;
               margin-bottom: 0.5rem;
-              background: #ddd;
+              background: $bg-loading;
             }
             span:last-child {
               height: 10px;
               width: 100px;
-              background: #ddd;
+              background: $bg-loading;
             }
             &::after {
               content: "";
