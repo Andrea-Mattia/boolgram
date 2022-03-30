@@ -147,6 +147,7 @@ section {
     }
     .site-stories {
       @include df("horizontal");
+      justify-content: flex-start;
       padding: 2.5rem;
       margin-bottom: 2rem;
       border: 1px solid #ccc;
@@ -344,6 +345,17 @@ section {
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  #app {
+    section.container .main-content {
+      width: calc(60% - 1rem);
+    }
+    aside.site-sidebar {
+      width: calc(40% - 0.5rem);
     }
   }
 }
