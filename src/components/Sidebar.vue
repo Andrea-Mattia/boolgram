@@ -15,11 +15,18 @@
     </div>
 
     <!-- SUGGESTED PROFILES -->
-    <Suggested
-      :profiles="profiles"
-      v-for="(profile, index) in profiles"
-      :key="`profile-sidebar-${index}`"
-    />
+    <div class="suggested">
+      <div class="suggested-head fwb">
+        <span>Suggerimenti per te</span>
+        <a href="#"> Mostra tutti </a>
+      </div>
+
+      <Suggested
+        v-for="(profile, index) in profiles"
+        :key="`profile-sidebar-${index}`"
+        :profile="profile"
+      />
+    </div>
 
     <div class="suggested-credits">&copy; 2022 INSTAGRAM FROM META</div>
   </aside>
@@ -68,6 +75,18 @@ export default {
     .user-action {
       a {
         color: $txt-action;
+      }
+    }
+  }
+  .suggested {
+    @include df("horizontal");
+    flex-direction: column;
+    .suggested-head {
+      @include df("");
+      justify-content: space-between;
+      color: $txt-secondary;
+      a {
+        color: $txt-primary;
       }
     }
   }
