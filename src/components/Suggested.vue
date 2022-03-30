@@ -8,7 +8,10 @@
       />
       <span class="fwb">{{ profile.profile_name }}</span>
     </div>
-    <div class="profile-action" @click="follow = !follow">
+    <div
+      :class="follow ? `following` : `profile-action`"
+      @click="follow = !follow"
+    >
       {{ follow ? "Segui già" : "Segui" }}
     </div>
   </div>
@@ -48,9 +51,15 @@ export default {
       margin-left: 1rem;
     }
   }
+  .following,
+  .profile-action {
+    cursor: pointer;
+  }
   .profile-action {
     color: $txt-action;
-    cursor: pointer;
+  }
+  .following {
+    color: $txt-secondary;
   }
 }
 </style>
