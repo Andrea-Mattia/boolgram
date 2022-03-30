@@ -37,7 +37,7 @@ header {
   position: fixed;
   z-index: 1;
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
   background: #fff;
   border-bottom: 1px solid #ccc;
   .site-header {
@@ -59,7 +59,7 @@ header {
     }
     .site-user {
       @include df("vertical");
-      & * {
+      & *:not(.fa-house) {
         margin-left: 1.5rem;
       }
       img {
