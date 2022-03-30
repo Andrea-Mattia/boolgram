@@ -7,7 +7,8 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 // importing icons
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as farHearth } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as fasHearth } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-regular-svg-icons";
 import { faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faCompass } from "@fortawesome/free-regular-svg-icons";
@@ -17,7 +18,8 @@ import { faCircleNotch } from "@fortawesome/free-solid-svg-icons";
 
 // adding icons
 library.add(
-  faHeart,
+  farHearth,
+  fasHearth,
   faHouse,
   faComment,
   faCompass,

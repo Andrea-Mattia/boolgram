@@ -16,7 +16,14 @@
     <div class="post-body">
       <!-- Post Icons -->
       <div class="post-content post-icons">
-        <font-awesome-icon icon="fa-regular fa-heart" size="xl" />
+        <span @click="clicked = !clicked">
+          <font-awesome-icon
+            icon="fa-regular fa-heart"
+            size="xl"
+            v-if="!clicked"
+          />
+          <font-awesome-icon icon="fa-solid fa-heart" size="xl" v-else />
+        </span>
         <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
         <font-awesome-icon icon="fa-regular fa-paper-plane" size="xl" />
       </div>
@@ -29,10 +36,17 @@
         <span>
           Piace a <strong>{{ info.likes[0].username }}</strong>
           <span v-if="info.likes.length > 1">
-            e <strong>{{ info.likes.length - 1 }} altri</strong>
+            e
+            <strong
+              >{{
+                clicked ? info.likes.length : info.likes.length - 1
+              }}
+              altri</strong
+            >
           </span>
         </span>
       </div>
+
       <div class="post-content" v-else>Non ci sono ancora likes.</div>
       <!-- Post Creator -->
       <div class="post-content post-creator">
@@ -48,7 +62,11 @@
           @click="showed = !showed"
           v-else-if="info.comments.length != 0"
         >
-          Mostra tutti e {{ info.comments.length }} commenti
+          {{
+            showed
+              ? `Mostra meno commenti`
+              : `Mostra tutti e ${info.comments.length} commenti`
+          }}
         </span>
         <span v-else>Non ci sono ancora commenti.</span>
 
@@ -104,6 +122,7 @@ export default {
   },
   data() {
     return {
+      clicked: false,
       showed: false,
       date: this.info.date.date,
     };
@@ -155,6 +174,11 @@ export default {
     .fa-heart,
     .fa-comment {
       margin-right: 1.5rem;
+    }
+    .fa-heart,
+    .fa-comment,
+    .fa-paper-plane {
+      cursor: pointer;
     }
   }
   .post-body {

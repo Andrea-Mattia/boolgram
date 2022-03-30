@@ -13,7 +13,9 @@
       </div>
       <!-- USER -->
       <div class="site-user">
-        <font-awesome-icon icon="fa-solid fa-house" size="xl" />
+        <a href="javascript:window.scrollTo({top: 0, behavior: 'smooth'})">
+          <font-awesome-icon icon="fa-solid fa-house" size="xl" />
+        </a>
         <font-awesome-icon icon="fa-regular fa-paper-plane" size="xl" />
         <font-awesome-icon icon="fa-regular fa-square-plus" size="xl" />
         <font-awesome-icon icon="fa-regular fa-compass" size="xl" />
@@ -32,6 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../styles/mixins";
+@import "../styles/vars";
 
 header {
   position: fixed;
@@ -61,6 +64,9 @@ header {
       @include df("vertical");
       & *:not(.fa-house) {
         margin-left: 1.5rem;
+      }
+      a {
+        color: $txt-primary;
       }
       img {
         height: 40px;
