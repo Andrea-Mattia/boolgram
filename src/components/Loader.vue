@@ -25,6 +25,30 @@
         <!-- POST IMAGE -->
         <div class="post-cover"></div>
       </div>
+      <div class="site-post">
+        <!-- POST HEAD -->
+        <div class="post-head">
+          <span class="post-img"></span>
+          <div class="profile-info">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <!-- POST IMAGE -->
+        <div class="post-cover"></div>
+      </div>
+      <div class="site-post">
+        <!-- POST HEAD -->
+        <div class="post-head">
+          <span class="post-img"></span>
+          <div class="profile-info">
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        <!-- POST IMAGE -->
+        <div class="post-cover"></div>
+      </div>
     </div>
 
     <aside class="site-sidebar">
