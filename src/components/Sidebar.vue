@@ -13,34 +13,26 @@
         <a href="#">Passa a</a>
       </div>
     </div>
+
     <!-- SUGGESTED PROFILES -->
-    <div class="suggested">
-      <div class="suggested-head fwb">
-        <span>Suggerimenti per te</span>
-        <a href="#"> Mostra tutti </a>
-      </div>
-      <div
-        class="suggested-profile"
-        v-for="(profile, index) in profiles"
-        :key="`profile-sidebar-${index}`"
-      >
-        <div class="profile-info">
-          <img
-            :src="profile.profile_picture"
-            :alt="`${profile.profile_name} avatar`"
-          />
-          <span class="fwb">{{ profile.profile_name }}</span>
-        </div>
-        <div class="profile-action">Segui</div>
-      </div>
-    </div>
+    <Suggested
+      :profiles="profiles"
+      v-for="(profile, index) in profiles"
+      :key="`profile-sidebar-${index}`"
+    />
+
     <div class="suggested-credits">&copy; 2022 INSTAGRAM FROM META</div>
   </aside>
 </template>
 
 <script>
+import Suggested from "../components/Suggested.vue";
+
 export default {
   name: "Sidebar",
+  components: {
+    Suggested,
+  },
   props: {
     profiles: Array,
   },
@@ -75,38 +67,6 @@ export default {
     }
     .user-action {
       a {
-        color: $txt-action;
-      }
-    }
-  }
-  .suggested {
-    @include df("horizontal");
-    flex-direction: column;
-    .suggested-head {
-      @include df("");
-      justify-content: space-between;
-      color: $txt-secondary;
-      a {
-        color: $txt-primary;
-      }
-    }
-    .suggested-profile {
-      @include df("vertical");
-      justify-content: space-between;
-      margin-top: 2rem;
-      .profile-info {
-        @include df("vertical");
-        justify-content: space-between;
-        img {
-          height: 32px;
-          width: 32px;
-          border-radius: 50%;
-        }
-        span {
-          margin-left: 1rem;
-        }
-      }
-      .profile-action {
         color: $txt-action;
       }
     }
