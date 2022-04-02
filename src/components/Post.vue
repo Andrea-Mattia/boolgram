@@ -44,6 +44,7 @@
               altri</strong
             >
           </span>
+          <span v-else-if="clicked"> e <strong> a te</strong></span>
         </span>
       </div>
 
