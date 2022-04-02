@@ -35,7 +35,7 @@
         />
         <span>
           Piace a <strong>{{ info.likes[0].username }}</strong>
-          <span v-if="info.likes.length >= 1">
+          <span v-if="info.likes.length > 1">
             e
             <strong
               >{{
