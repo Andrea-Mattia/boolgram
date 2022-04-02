@@ -35,7 +35,7 @@
         />
         <span>
           Piace a <strong>{{ info.likes[0].username }}</strong>
-          <span v-if="info.likes.length > 1">
+          <span v-if="info.likes.length >= 1">
             e
             <strong
               >{{
@@ -47,7 +47,9 @@
         </span>
       </div>
 
-      <div class="post-content" v-else>Non ci sono ancora likes.</div>
+      <div class="post-content post-likes" v-else>
+        {{ !clicked ? "Non ci sono ancora likes." : "Piace a te." }}
+      </div>
       <!-- Post Creator -->
       <div class="post-content post-creator">
         <strong>{{ info.profile_name }}</strong> {{ info.post_text }}
@@ -65,7 +67,7 @@
           {{
             showed
               ? `Mostra meno commenti`
-              : `Mostra tutti e ${info.comments.length} commenti`
+              : `Mostra tutti e ${info.comments.length} i commenti`
           }}
         </span>
         <span v-else>Non ci sono ancora commenti.</span>
