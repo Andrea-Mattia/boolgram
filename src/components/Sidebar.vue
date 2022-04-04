@@ -28,7 +28,11 @@
       />
     </div>
 
-    <div class="suggested-credits">&copy; 2022 INSTAGRAM FROM META</div>
+    <transition name="slide-fade">
+      <div class="suggested-credits" v-if="profiles.length != 0">
+        &copy; 2022 INSTAGRAM FROM META
+      </div>
+    </transition>
   </aside>
 </template>
 
@@ -94,6 +98,13 @@ export default {
     margin-top: 2rem;
     text-transform: uppercase;
     color: rgba($txt-secondary, 0.3);
+  }
+  .slide-fade-enter-active {
+    transition: all 1s ease;
+  }
+  .slide-fade-enter {
+    transform: translateX(10px);
+    opacity: 0;
   }
 }
 </style>
