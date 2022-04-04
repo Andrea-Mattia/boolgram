@@ -22,7 +22,12 @@
             size="xl"
             v-if="!clicked"
           />
-          <font-awesome-icon icon="fa-solid fa-heart" size="xl" v-else />
+          <font-awesome-icon
+            icon="fa-solid fa-heart"
+            size="xl"
+            v-else
+            class="fa-bounce"
+          />
         </span>
         <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
         <font-awesome-icon icon="fa-regular fa-paper-plane" size="xl" />
@@ -174,14 +179,17 @@ export default {
     }
   }
   .post-icons {
-    .fa-heart,
-    .fa-comment {
-      margin-right: 1.5rem;
+    .fa-comment,
+    .fa-paper-plane {
+      margin-left: 1.5rem;
     }
     .fa-heart,
     .fa-comment,
     .fa-paper-plane {
       cursor: pointer;
+    }
+    .fa-heart.fa-bounce {
+      animation-iteration-count: 1;
     }
   }
   .post-body {
