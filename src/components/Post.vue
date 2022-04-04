@@ -251,6 +251,7 @@ export default {
       span {
         padding-right: 1.5rem;
         color: $txt-action;
+        cursor: pointer;
       }
     }
   }
