@@ -90,6 +90,42 @@
             </div>
           </div>
         </div>
+        <div class="suggested-profile">
+          <div class="profile-info">
+            <span class="profile-avatar"></span>
+            <div class="profile-name">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="suggested-profile">
+          <div class="profile-info">
+            <span class="profile-avatar"></span>
+            <div class="profile-name">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="suggested-profile">
+          <div class="profile-info">
+            <span class="profile-avatar"></span>
+            <div class="profile-name">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+        <div class="suggested-profile">
+          <div class="profile-info">
+            <span class="profile-avatar"></span>
+            <div class="profile-name">
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
       </div>
     </aside>
   </section>
