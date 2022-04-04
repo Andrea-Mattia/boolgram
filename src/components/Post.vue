@@ -60,46 +60,40 @@
       </div>
       <!-- Post Comments -->
       <div class="post-content post-comments">
-        <span v-if="info.comments.length <= 3 && info.comments.length != 0"
+        <span v-if="comments.length <= 3 && comments.length != 0"
           >Tutti i commenti sono mostrati.</span
         >
         <span
           class="show-comments"
           @click="showed = !showed"
-          v-else-if="info.comments.length != 0"
+          v-else-if="comments.length != 0"
         >
           {{
             showed
               ? `Mostra meno commenti`
-              : `Mostra tutti e ${info.comments.length} i commenti`
+              : `Mostra tutti e ${comments.length} i commenti`
           }}
         </span>
         <span v-else>Non ci sono ancora commenti.</span>
 
         <!-- Mostra i primi 3 commenti, se sono di più-->
-        <ul v-if="info.comments.length > 3 && !showed">
+        <ul v-if="comments.length > 3 && !showed">
           <li
-            v-for="(comment, index) in info.comments.slice(1, 4)"
+            v-for="(comment, index) in comments.slice(1, 4)"
             :key="`comment-${index}`"
           >
             <strong>{{ comment.username }}</strong> {{ comment.text }}
           </li>
         </ul>
         <!-- Mostra i commenti quando sono inferiori o uguali a 3 -->
-        <ul v-else-if="info.comments.length <= 3">
-          <li
-            v-for="(comment, index) in info.comments"
-            :key="`comment-${index}`"
-          >
+        <ul v-else-if="comments.length <= 3">
+          <li v-for="(comment, index) in comments" :key="`comment-${index}`">
             <strong>{{ comment.username }}</strong> {{ comment.text }}
           </li>
         </ul>
         <!-- Mostra tutti i commenti quando viene cliccata la scritta 'Mostra tutti i commenti' -->
         <ul v-else-if="showed">
-          <li
-            v-for="(comment, index) in info.comments"
-            :key="`comment-${index}`"
-          >
+          <li v-for="(comment, index) in comments" :key="`comment-${index}`">
             <strong>{{ comment.username }}</strong> {{ comment.text }}
           </li>
         </ul>
@@ -110,8 +104,16 @@
       </div>
       <!-- Post Add Comment -->
       <div class="post-add-comment">
-        <input type="text" placeholder="Aggiungi un commento" />
-        <span>Pubblica</span>
+        <form>
+          <input
+            type="text"
+            placeholder="Aggiungi un commento"
+            v-model="newCommentText"
+          />
+          <span type="submit" @click.prevent="addComment(newCommentText)">
+            Pubblica
+          </span>
+        </form>
       </div>
     </div>
   </div>
@@ -131,6 +133,12 @@ export default {
       clicked: false,
       showed: false,
       date: this.info.date.date,
+      comments: this.info.comments,
+      newCommentText: "",
+      newComment: {
+        text: "",
+        username: "the_helljumper",
+      },
     };
   },
   created() {
@@ -139,6 +147,11 @@ export default {
   methods: {
     dateDiffForHumans(date) {
       return dayjs().to(dayjs(date));
+    },
+    addComment(text) {
+      this.newComment.text = text;
+      this.comments.push(this.newComment);
+      this.newCommentText = "";
     },
   },
 };
@@ -231,27 +244,29 @@ export default {
       color: $txt-secondary;
     }
     .post-add-comment {
-      @include df("vertical");
-      justify-content: space-between;
       border-top: 1px solid #ddd;
       padding: 1rem 0;
-      input {
-        flex-grow: 1;
-        height: 36px;
-        font-size: 18px;
-        margin: 0 1.5rem;
-        border: none;
-        outline: none;
-        border-radius: 8px;
-        transition: background 0.3s linear;
-        &:focus {
-          background: #eee;
+      form {
+        @include df("vertical");
+        justify-content: space-between;
+        input {
+          flex-grow: 1;
+          height: 36px;
+          font-size: 18px;
+          margin: 0 1.5rem;
+          border: none;
+          outline: none;
+          border-radius: 8px;
+          transition: background 0.3s linear;
+          &:focus {
+            background: #eee;
+          }
         }
-      }
-      span {
-        padding-right: 1.5rem;
-        color: $txt-action;
-        cursor: pointer;
+        span {
+          padding-right: 1.5rem;
+          color: $txt-action;
+          cursor: pointer;
+        }
       }
     }
   }
