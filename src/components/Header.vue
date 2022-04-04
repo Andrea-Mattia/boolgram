@@ -38,7 +38,7 @@ export default {
 
 header {
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   width: 100%;
   padding: 0.5rem 0;
   background: #fff;

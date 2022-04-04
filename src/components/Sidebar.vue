@@ -61,7 +61,6 @@ export default {
   .sidebar {
     position: sticky;
     top: 80px;
-    z-index: -1;
     .user-info {
       @include df("vertical");
       justify-content: space-between;

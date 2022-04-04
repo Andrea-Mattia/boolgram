@@ -278,6 +278,7 @@ section {
     width: calc(40% - 3rem);
     padding: 0 0 1.5rem 1.5rem;
     background: white;
+    z-index: 1;
     .suggested {
       @include df("horizontal");
       flex-direction: column;
