@@ -26,7 +26,7 @@
             icon="fa-solid fa-heart"
             size="xl"
             v-else
-            class="fa-bounce"
+            class="fa-beat"
           />
         </span>
         <font-awesome-icon icon="fa-regular fa-comment" size="xl" />
@@ -42,11 +42,9 @@
           Piace a <strong>{{ info.likes[0].username }}</strong>
           <span v-if="info.likes.length > 1">
             e
-            <strong
-              >{{
-                clicked ? info.likes.length : info.likes.length - 1
-              }}
-              altri</strong
+            <strong>
+              altri
+              {{ clicked ? info.likes.length : info.likes.length - 1 }}</strong
             >
           </span>
           <span v-else-if="clicked"> e <strong> a te</strong></span>
@@ -188,8 +186,10 @@ export default {
     .fa-paper-plane {
       cursor: pointer;
     }
-    .fa-heart.fa-bounce {
+    .fa-heart.fa-beat {
+      color: red;
       animation-iteration-count: 1;
+      animation-duration: 0.3s;
     }
   }
   .post-body {
