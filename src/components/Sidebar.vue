@@ -18,13 +18,24 @@
       <div class="suggested">
         <div class="suggested-head fwb">
           <span>Suggerimenti per te</span>
-          <a href="#"> Mostra tutti </a>
+          <span @click="show = !show">Mostra tutti</span>
         </div>
-        <Suggested
-          v-for="(profile, index) in profiles"
-          :key="`profile-sidebar-${index}`"
-          :profile="profile"
-        />
+        <!-- SHOW ONLY 4 PROFILES ON FIRST LOAD -->
+        <div v-if="!show">
+          <Suggested
+            v-for="(profile, index) in profiles.slice(1, 5)"
+            :key="`profile-sidebar-${index}`"
+            :profile="profile"
+          />
+        </div>
+        <!-- SHOW ALL PROFILES -->
+        <div v-else>
+          <Suggested
+            v-for="(profile, index) in profiles"
+            :key="`profile-sidebar-${index}`"
+            :profile="profile"
+          />
+        </div>
       </div>
       <transition name="slide-fade">
         <div class="suggested-credits" v-if="profiles.length != 0">
@@ -45,6 +56,11 @@ export default {
   },
   props: {
     profiles: Array,
+  },
+  data() {
+    return {
+      show: false,
+    };
   },
 };
 </script>
@@ -92,8 +108,9 @@ export default {
         @include df("");
         justify-content: space-between;
         color: $txt-secondary;
-        a {
+        span:last-child {
           color: $txt-primary;
+          cursor: pointer;
         }
       }
     }

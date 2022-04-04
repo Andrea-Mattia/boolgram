@@ -90,33 +90,6 @@
             </div>
           </div>
         </div>
-        <div class="suggested-profile">
-          <div class="profile-info">
-            <span class="profile-avatar"></span>
-            <div class="profile-name">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <div class="suggested-profile">
-          <div class="profile-info">
-            <span class="profile-avatar"></span>
-            <div class="profile-name">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
-        <div class="suggested-profile">
-          <div class="profile-info">
-            <span class="profile-avatar"></span>
-            <div class="profile-name">
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-        </div>
       </div>
     </aside>
   </section>
@@ -283,7 +256,7 @@ section {
       @include df("horizontal");
       flex-direction: column;
       .suggested-profile {
-        margin: 1rem 0;
+        margin: 0.7rem 0;
         .profile-info {
           @include df("vertical");
           .profile-avatar {
