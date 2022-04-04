@@ -135,10 +135,6 @@ export default {
       date: this.info.date.date,
       comments: this.info.comments,
       newCommentText: "",
-      newComment: {
-        text: "",
-        username: "the_helljumper",
-      },
     };
   },
   created() {
@@ -149,8 +145,12 @@ export default {
       return dayjs().to(dayjs(date));
     },
     addComment(text) {
-      this.newComment.text = text;
-      this.comments.push(this.newComment);
+      // Creating a new object with text property = newCommentText passed by parameter
+      this.comments.push({
+        text: text,
+        username: "the_helljumper",
+      });
+      // cleaning newCommentText
       this.newCommentText = "";
     },
   },
