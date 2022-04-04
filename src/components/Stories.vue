@@ -37,6 +37,8 @@ export default {
     @include df("both");
     flex-direction: column;
     flex-shrink: 0;
+    cursor: pointer;
+    transition: transform 0.3s;
     &:not(:last-child) {
       margin-right: 1.5rem;
     }
@@ -53,6 +55,9 @@ export default {
       margin-top: 0.5rem;
       overflow: hidden;
       text-overflow: ellipsis;
+    }
+    &:hover {
+      transform: scale(1.2);
     }
   }
 }

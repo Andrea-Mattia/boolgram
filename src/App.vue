@@ -35,6 +35,7 @@ export default {
     this.getStories();
     this.getPosts();
     this.isLoading();
+    this.scrollToTop();
   },
   methods: {
     getStories() {
@@ -65,6 +66,9 @@ export default {
         body.classList.remove("noscroll");
         this.loading = false;
       }, 3500);
+    },
+    scrollToTop() {
+      window.scrollTo(top);
     },
   },
 };
