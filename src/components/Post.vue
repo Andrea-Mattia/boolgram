@@ -9,7 +9,7 @@
       <span class="fwb">...</span>
     </div>
     <!-- POST IMAGE -->
-    <div class="post-image">
+    <div class="post-image" @click="$emit('isExpanded', isExpanded)">
       <img :src="info.post_image" :alt="`${info.profile_name} post image`" />
     </div>
     <!-- POST BODY -->
@@ -50,7 +50,6 @@
           <span v-else-if="clicked"> e <strong> a te</strong></span>
         </span>
       </div>
-
       <div class="post-content post-likes" v-else>
         {{ !clicked ? "Non ci sono ancora likes." : "Piace a te." }}
       </div>
@@ -75,7 +74,6 @@
           }}
         </span>
         <span v-else>Non ci sono ancora commenti.</span>
-
         <!-- Mostra i primi 3 commenti, se sono di più-->
         <ul v-if="comments.length > 3 && !showed">
           <li
@@ -135,6 +133,7 @@ export default {
       date: this.info.date.date,
       comments: this.info.comments,
       newCommentText: "",
+      isExpanded: false,
     };
   },
   created() {
@@ -163,6 +162,7 @@ export default {
 
 .site-post {
   margin-bottom: 2rem;
+  background: #fff;
   border: 1px solid #ccc;
   .post-head {
     @include df("vertical");
@@ -184,6 +184,7 @@ export default {
     }
   }
   .post-image {
+    cursor: pointer;
     img {
       height: 100%;
       width: 100%;

@@ -38,7 +38,7 @@ export default {
 .suggested-profile {
   @include df("vertical");
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   .profile-info {
     @include df("vertical");
     justify-content: space-between;
