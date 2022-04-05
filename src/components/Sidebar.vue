@@ -85,7 +85,7 @@ export default {
     .user-info {
       @include df("vertical");
       justify-content: space-between;
-      margin-bottom: 4rem;
+      margin-bottom: 1.5rem;
       img {
         height: 56px;
         border-radius: 50%;

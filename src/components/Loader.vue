@@ -282,17 +282,17 @@ section {
   }
   .site-sidebar {
     position: absolute;
-    top: 280px;
+    top: 240px;
     right: 0;
     width: calc(40% - 3rem);
-    padding: 0 0 1.5rem 1.5rem;
+    padding: 0 0 0 1.5rem;
     background: white;
     z-index: 1;
     .suggested {
       @include df("horizontal");
       flex-direction: column;
       .suggested-profile {
-        margin: 0.7rem 0;
+        margin: 1rem 0 0 0;
         .profile-info {
           @include df("vertical");
           .profile-avatar {
