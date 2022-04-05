@@ -1,5 +1,5 @@
 <template>
-  <div class="site-post" :class="{ expanded: isExpanded }">
+  <div class="site-post">
     <!-- POST HEAD -->
     <div class="post-head">
       <div class="profile-info">
