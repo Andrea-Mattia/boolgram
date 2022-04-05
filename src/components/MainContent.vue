@@ -4,7 +4,6 @@
       <div class="site-feed">
         <Stories :profiles="profiles" />
         <Post
-          @isExpanded="addClass"
           v-for="(post, index) in posts"
           :key="`post-${index}`"
           :info="post"
@@ -31,12 +30,6 @@ export default {
     profiles: Array,
     posts: Array,
   },
-  methods: {
-    addClass(isExpanded) {
-      isExpanded = !isExpanded;
-      console.log(isExpanded);
-    },
-  },
 };
 </script>
 
@@ -50,22 +43,6 @@ main {
     padding-top: 100px;
     .site-feed {
       width: 60%;
-      .expanded {
-        position: relative;
-        top: 50vh;
-        left: 50vh;
-        transform: translate(-40%, -60%);
-        z-index: 3;
-        &::before {
-          content: "";
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: rgba(0, 0, 0, 0.8);
-        }
-      }
     }
   }
 }

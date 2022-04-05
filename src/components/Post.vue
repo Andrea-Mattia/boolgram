@@ -1,5 +1,5 @@
 <template>
-  <div class="site-post">
+  <div class="site-post" :class="{ expanded: isExpanded }">
     <!-- POST HEAD -->
     <div class="post-head">
       <div class="profile-info">
@@ -9,7 +9,7 @@
       <span class="fwb">...</span>
     </div>
     <!-- POST IMAGE -->
-    <div class="post-image" @click="$emit('isExpanded', isExpanded)">
+    <div class="post-image">
       <img :src="info.post_image" :alt="`${info.profile_name} post image`" />
     </div>
     <!-- POST BODY -->
@@ -133,7 +133,6 @@ export default {
       date: this.info.date.date,
       comments: this.info.comments,
       newCommentText: "",
-      isExpanded: false,
     };
   },
   created() {
